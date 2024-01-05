@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { getProd, postProd } from '../Redux/product/action';
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { postProd } from "../Redux/product/action";
 
 const ProductModal = ({ isOpen, onClose }) => {
-  const dispatch=useDispatch()
+  const dispatch = useDispatch();
   const [formData, setFormData] = useState({
-    name: '',
-    gender: '',
-    category: '',
-    price: '',
-    description: '',
-    picture: '',
+    name: "",
+    gender: "",
+    category: "",
+    price: "",
+    description: "",
+    picture: "",
   });
 
   const handleInputChange = (e) => {
@@ -20,20 +20,18 @@ const ProductModal = ({ isOpen, onClose }) => {
       [name]: value,
     }));
   };
-// console.log(formData)
+  // console.log(formData)
   const handleAddProduct = () => {
-    const {name,gender,category,price,description,picture}=formData;
-    const newProd={name,gender,category,price,description,picture}
-dispatch(postProd(newProd))
-// dispatch(getProd())
+    const { name, gender, category, price, description, picture } = formData;
+    const newProd = { name, gender, category, price, description, picture };
+    dispatch(postProd(newProd));
+    // dispatch(getProd())
     onClose();
   };
 
   return (
     <div
-      className={`${
-        isOpen ? 'block' : 'hidden'
-      } fixed inset-0 overflow-y-auto`}
+      className={`${isOpen ? "block" : "hidden"} fixed inset-0 overflow-y-auto`}
     >
       <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
         <div
@@ -59,9 +57,7 @@ dispatch(postProd(newProd))
         >
           <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
             <div className="sm:flex sm:items-start">
-              <div className="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-blue-100 sm:mx-0 sm:h-10 sm:w-10">
-               
-              </div>
+              <div className="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-blue-100 sm:mx-0 sm:h-10 sm:w-10"></div>
               <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
                 <h3
                   className="text-lg leading-6 font-medium text-gray-900"
@@ -80,7 +76,7 @@ dispatch(postProd(newProd))
                       value={formData.name}
                       onChange={handleInputChange}
                       className="border rounded w-full py-2 px-3"
-                      placeholder='Enter Product name'
+                      placeholder="Enter Product name"
                     />
                   </div>
                   <div className="mt-2">
